@@ -12,8 +12,8 @@ namespace Application.ToDoTasks
     {
         public class Command : IRequest
         {
+            public int Id { get; set; }
             public string Description { get; set; }
-
             public string Status { get; set; }
 
         }
@@ -30,7 +30,6 @@ namespace Application.ToDoTasks
             {
                 var ToDoTask = new ToDoTask()
                 {
-                    Id = _context.ToDoTasks.Count()+1,
                     Description = request.Description,
                     Status = (Status)(Enum.Parse(typeof(Status), request.Status ?? "0"))
             };
